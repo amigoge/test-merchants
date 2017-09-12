@@ -5,11 +5,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.component('list-post',indexComponent);
-
+// the parent instance
 var app = new Vue({
     el: '#app',
     mounted: function () {
-      this.getLocation();
       this.getPost();
     },
     data: {
@@ -29,19 +28,6 @@ var app = new Vue({
         // 取得超商資訊
         function getMerchantPost() {
           return $.get('/api/fakeData');
-        }
-      },
-      // 取得城市區域清單
-      getLocation: function () {
-        var promise = getLocation();
-        promise.then(function (data) {
-          app.locationData = data;
-        }, function (err) {
-          console.log(err);
-        })
-        // 取得城市區域資料
-        function getLocation() {
-          return $.get('/api/v1/address/taiwan');
         }
       },
       // 顯示指定的招商文資訊

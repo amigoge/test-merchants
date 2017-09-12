@@ -31,10 +31,11 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
+  // get the simple page
   '/': {
     view: 'index'
   },
+  // get the fakeData
   'GET /api/fakeData':'PagesController.getDummyData'
 
   /***************************************************************************

@@ -558,11 +558,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('list-post', __WEBPACK_IMPORTED_MODULE_2__vue_index_vue__["a" /* default */]);
-
+// the parent instance
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
   el: '#app',
   mounted: function () {
-    this.getLocation();
     this.getPost();
   },
   data: {
@@ -582,19 +581,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
       // 取得超商資訊
       function getMerchantPost() {
         return $.get('/api/fakeData');
-      }
-    },
-    // 取得城市區域清單
-    getLocation: function () {
-      var promise = getLocation();
-      promise.then(function (data) {
-        app.locationData = data;
-      }, function (err) {
-        console.log(err);
-      });
-      // 取得城市區域資料
-      function getLocation() {
-        return $.get('/api/v1/address/taiwan');
       }
     },
     // 顯示指定的招商文資訊
