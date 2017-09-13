@@ -35,7 +35,9 @@ var app = new Vue({
         this.postDetail = _.find(this.merchantPost, function (item) {
           return item.id == postId
         });
-        $('#merchantDetailModal').modal('show');
+        
+        this.$refs.merchantDetailModal.show();
+        // $('#merchantDetailModal').modal('show');
       }
     },
     filters: {

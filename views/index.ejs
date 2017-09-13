@@ -1,31 +1,19 @@
-<div id="app" class="content">
-  <div class="jumbotron pt-2">
+<div class="content">
+  <b-jumbotron class="pt-2">
     <list-post :list="merchantPost" @show-detail="showDetail"></list-post>
-  </div>
+  </b-jumbotron>
   <!-- 招商訊息detail -->
-  <div class="modal fade" id="merchantDetailModal" tabindex="-1" role="dialog"
-       aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <!--招商文的title-->
-        <div class="modal-header">
-          <h5 class="modal-title" id="merchantModalTitle">{{postDetail.title}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--招商文的內容-->
-        <div class="modal-body">
-          <div class="merchantModalContent">
-            {{postDetail.content}}
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">返回</button>
-          <button type="button" class="btn btn-primary">確定</button>
-        </div>
+  <b-modal id="merchantDetailModal" size="lg"
+           ref="merchantDetailModal">
+    <div slot="modal-title">
+      {{postDetail.title}}
+    </div>
+    <div>
+      <!--招商文的內容-->
+      <div class="merchantModalContent">
+        {{postDetail.content}}
       </div>
     </div>
-  </div>
+  </b-modal>
 </div>
 <!--<script src="/js/views/Merchants/bundle_stage.js"></script>-->

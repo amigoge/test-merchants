@@ -2,19 +2,17 @@
 <!--<template id="listPost">-->
 <template>
   <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3" v-for="post in list">
-          <div class="card mt-4 m-card" v-on:click="displayDetail(post.id)">
-            <img class="card-img-top" alt="Card image cap"
-                 src="/images/default.png">
-            <div class="card-block">
-              <p class="card-text">{{post.title}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <b-container>
+      <b-row>
+        <b-col cols="3" v-for="post in list" :key="post.id">
+          <b-card class="mt-4 m-card" v-on:click="displayDetail(post.id)"
+                  img-src="/images/default.png" img-alt="Card image cap"
+                  img-top>
+            <p class="card-text">{{post.title}}</p>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 

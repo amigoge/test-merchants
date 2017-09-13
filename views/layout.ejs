@@ -32,33 +32,50 @@
 </head>
 
 <body>
-<div class="container">
-  <!--navbar-->
-  <nav class="navbar navbar-expand-md navbar-light bg-faded m-navbar">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="/merchants">
-      <img src="images/bootstrap-stack.png" width="40">
-      市集系統
-    </a>
+<!--vue 的instance-->
+<div id="app">
+  <b-container>
+    <!--navbar-->
+    <b-navbar toggleable="md" type="dark" variant="dark">
+      <b-nav-toggle target="nav_collapse"></b-nav-toggle>
+      <b-navbar-brand href="#">市集系統</b-navbar-brand>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">招商資訊 <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
-      </form>
-    </div>
-  </nav>
-  <!--實際內容-->
-  <%- body %>
-  <!--footer-->
-  <div></div>
+      <b-collapse is-nav id="nav_collapse">
+        <b-nav is-nav-bar>
+          <b-nav-item href="/">招商資訊</b-nav-item>
+          <b-nav-item href="#">市集資訊</b-nav-item>
+        </b-nav>
+
+        <!-- Right aligned nav items -->
+        <b-nav is-nav-bar class="ml-auto">
+          <b-nav-form>
+            <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="搜尋"/>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit">搜尋</b-button>
+          </b-nav-form>
+          <!--多語系切換-->
+          <!--<b-nav-item-dropdown text="Lang" right>-->
+            <!--<b-dropdown-item href="#">EN</b-dropdown-item>-->
+            <!--<b-dropdown-item href="#">ES</b-dropdown-item>-->
+            <!--<b-dropdown-item href="#">RU</b-dropdown-item>-->
+            <!--<b-dropdown-item href="#">FA</b-dropdown-item>-->
+          <!--</b-nav-item-dropdown>-->
+          <!--使用者功能-->
+          <b-nav-item-dropdown right>
+            <!-- Using button-content slot -->
+            <template slot="button-content">
+              <em>使用者</em>
+            </template>
+            <b-dropdown-item href="#">個人資訊</b-dropdown-item>
+            <b-dropdown-item href="#">登出</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-nav>
+      </b-collapse>
+    </b-navbar>
+    <!--實際內容-->
+    <%- body %>
+    <!--footer-->
+    <div></div>
+  </b-container>
 </div>
 
 <!--TEMPLATES-->
